@@ -33,6 +33,10 @@ function M_header() {
         let d = dataComb.filter((obj) => (
             (obj.movie.includes(searchInput)) || (obj.code.includes(searchInput))
         ))
+
+        if (d.length === 0) {
+            alert('검색결과가 없습니다.')
+        }
         setSearchValue(d);
         setSearchInput('');
         setSearchView(true);
@@ -55,9 +59,9 @@ function M_header() {
 
     const logout = () => {
         if (confirm('로그아웃 하시겠습니까?')) {
-            storegeFn('logout')
             setSearchView(false)
             setMenuOn(false)
+            storegeFn('logout')
         }
     }
 
@@ -78,6 +82,7 @@ function M_header() {
                         }
                     }}
                     >Ticket</Link>
+
                     <Link href={isLogined ? "/" : "/login"}
                         onClick={(e) => {
                             if (isLogined) {
@@ -86,7 +91,9 @@ function M_header() {
                             }
                         }}
                     >
-                        {isLogined ? 'Logout' : 'Login'}</Link>
+                        {isLogined ? 'Logout' : 'Login'}
+                    </Link>
+
                     <Link href={isLogined ? "/mypage" : "/login"}>My page</Link>
                 </nav>
 
@@ -137,7 +144,21 @@ function M_header() {
                             posterUrlList: JSON.stringify(posterUrl)
                         }
                     }} onClick={() => setMenuOn(false)}>Ticket</Link>
-                    <Link href={storege ? "/" : "/login"} onClick={logout}>{isLogined ? 'Logout' : 'Login'}</Link>
+
+                    <Link href={isLogined ? "/" : "/login"}
+                        onClick={(e) => {
+                            if (isLogined) {
+                                e.preventDefault();
+                                logout();
+                            } else {
+                                setSearchView(false);
+                                setMenuOn(false);
+                            }
+                        }}
+                    >
+                        {isLogined ? 'Logout' : 'Login'}
+                    </Link>
+
                     <Link href={isLogined ? "/mypage" : "/login"} onClick={() => setMenuOn(false)}>My page</Link>
                 </div>
 
