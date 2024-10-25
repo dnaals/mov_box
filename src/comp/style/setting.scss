@@ -6,6 +6,7 @@
     h2 {
         font-size: 22px;
         position: relative;
+        margin-bottom: 50px;
 
         img {
             cursor: pointer;
@@ -16,25 +17,37 @@
         }
     }
 
-    a {
-        display: block;
-
-        .btn {
-            cursor: pointer;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            background-color: var(--mov_gray);
-            width: 80%;
-            border: none;
-            margin: 50px auto 0;
-        }
-
-        +a {
-            .btn {
-                margin-top: 15px;
-            }
-        }
+    .btn {
+        cursor: pointer;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        background-color: var(--mov_gray);
+        width: 80%;
+        border: none;
+        margin: 20px auto;
     }
 
+
+}
+
+@media screen and (min-width : 768px) {
+    .setting_page {
+
+        h2 {
+
+
+            img {
+                top: 0;
+                left: 25%;
+
+            }
+        }
+
+
+
+        .btn {
+            width: 50%;
+        }
+    }
 }
