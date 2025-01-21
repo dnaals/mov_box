@@ -5,4 +5,4 @@
     <li> 기간 : 2024.08 ~ 2024.10 </li>
     <li> 수정 : 회원탈퇴, 비밀번호 변경 준비중입니다.</li>
   </ul>
-
+![Image](https://github.com/user-attachments/assets/4fcfee39-500f-4a8b-87ca-ef5f7c663261)
